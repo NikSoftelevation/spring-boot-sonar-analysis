@@ -7,19 +7,14 @@ import com.spring.sonar.repository.UserRepository;
 import com.spring.sonar.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.management.RuntimeMBeanException;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImplementation implements UserService {
 
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
     @Autowired
     private UserRepository userRepository;
 
@@ -45,7 +40,7 @@ public class UserServiceImplementation implements UserService {
         userByUserId.setPhone(user.getPhone());
         userByUserId.setAddress(user.getAddress());
         userByUserId.setJobProfile(user.getJobProfile());
-        userByUserId.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        userByUserId.setPassword(user.getPassword());
 
         User updatedUser = userRepository.save(userByUserId);
 

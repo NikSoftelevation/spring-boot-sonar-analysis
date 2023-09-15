@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/api/users")
 @RestController
+@RequestMapping("/api/users")
 public class UserController {
 
     @Autowired
@@ -47,7 +47,7 @@ public class UserController {
     public ResponseEntity<ApiResponse> deleteUserByUserId(@PathVariable("userId") int userId) {
 
         userService.deleteUserByUserId(userId);
-        ApiResponse apiResponse = new ApiResponse("User with userId " + userId + "deleted successfully", true);
+        ApiResponse apiResponse = new ApiResponse("User deleted successfully", true);
 
         return new ResponseEntity<>(apiResponse, HttpStatus.GONE);
     }
