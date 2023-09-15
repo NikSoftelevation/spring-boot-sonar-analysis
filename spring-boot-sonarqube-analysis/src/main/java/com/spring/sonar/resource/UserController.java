@@ -4,7 +4,6 @@ import com.spring.sonar.dto.UserDto;
 import com.spring.sonar.entity.User;
 import com.spring.sonar.responsee.ApiResponse;
 import com.spring.sonar.service.UserService;
-import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
